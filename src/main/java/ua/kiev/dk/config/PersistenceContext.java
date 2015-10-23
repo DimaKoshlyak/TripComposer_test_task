@@ -4,6 +4,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -17,9 +18,9 @@ import java.util.Properties;
  * Created by d.koshlyak on 23.10.2015.
  */
 @Configuration
-//@EnableJpaRepositories(basePackages = {
-//        "ua.kiev.dk.repositories"
-//})
+@EnableJpaRepositories(basePackages = {
+        "ua.kiev.dk.repositories"
+})
 @ComponentScan(value = "ua.kiev.dk")
 @EnableTransactionManagement
 public class PersistenceContext {
