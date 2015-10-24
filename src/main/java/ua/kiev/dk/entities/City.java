@@ -4,11 +4,15 @@ package ua.kiev.dk.entities;
  * Created by d.koshlyak on 23.10.2015.
  */
 
+import org.codehaus.jackson.annotate.JsonPropertyOrder;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "cities")
-public class City {
+@JsonPropertyOrder({"cityName"})
+public class City implements Serializable{
 
     @Id
     @GeneratedValue

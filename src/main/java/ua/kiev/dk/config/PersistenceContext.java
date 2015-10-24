@@ -68,7 +68,7 @@ public class PersistenceContext {
 
     private Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO, "update");
+        properties.setProperty(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO, "create");
         properties.setProperty(PROPERTY_NAME_HIBERNATE_DIALECT, PROPERTY_NAME_POSTGRES_DIALECT);
         return properties;
     }

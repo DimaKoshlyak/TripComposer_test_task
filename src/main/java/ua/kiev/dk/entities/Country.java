@@ -1,6 +1,10 @@
 package ua.kiev.dk.entities;
 
+import org.codehaus.jackson.annotate.JsonPropertyOrder;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +13,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "countries")
-public class Country {
+@JsonPropertyOrder({"countryName", "countryISOCode", "cities"})
+public class Country implements Serializable {
     @Id
     @GeneratedValue
     private long id;
@@ -18,7 +23,7 @@ public class Country {
     @Column(name = "country_iso_code")
     private String countryISOCode;
     @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
-    private List<City> cities;
+    private List<City> cities = new ArrayList<City>();
 
     public Country() {
     }
