@@ -13,6 +13,7 @@ public class City {
     @Id
     @GeneratedValue
     private long id;
+
     @Column(name = "city_name")
     private String cityName;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -48,5 +49,14 @@ public class City {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", cityName='" + cityName + '\'' +
+                ", country=" + country +
+                '}';
     }
 }

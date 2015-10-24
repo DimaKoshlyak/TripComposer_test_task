@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import ua.kiev.dk.entities.City;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,11 +18,19 @@ import java.io.IOException;
 public class RestController {
 
     @RequestMapping(value = "/json")
-    public ModelAndView helloWorld() {
+    public ModelAndView test() throws IOException {
+        return new ModelAndView("index");
+    }
 
-        String message = "<br><div style='text-align:center;'>"
-                + "<h3>********** Hello World, Spring MVC Tutorial</h3>This message is coming from CrunchifyHelloWorld.java **********</div><br><br>";
-        return new ModelAndView("home", "message", message);
+    @RequestMapping(value="/post",
+            method = RequestMethod.POST,
+            consumes="application/json;charset=UTF-8",
+            produces = "application/json;charset=UTF-8")
+    public City create(@RequestBody City p) {
+
+        System.out.println("DONE!");
+
+        return p;
     }
 }
 
