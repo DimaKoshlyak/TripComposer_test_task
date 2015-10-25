@@ -13,9 +13,6 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext container) {
