@@ -22,7 +22,7 @@ public class Country implements Serializable {
     private String countryName;
     @Column(name = "country_iso_code")
     private String countryISOCode;
-    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
     private List<City> cities = new ArrayList<City>();
 
     public Country() {

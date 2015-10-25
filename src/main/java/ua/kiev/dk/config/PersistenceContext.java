@@ -46,10 +46,6 @@ public class PersistenceContext {
         dataSource.setPassword(PROPERTY_DB_USER_PASSWORD);
         dataSource.setDriverClassName(PROPERTY_DB_DRIVER_CLASS);
 
-//        dataSource.setMaxTotal(20);
-//        dataSource.setMaxConnLifetimeMillis(10000);
-//        dataSource.setMaxWaitMillis(15000);
-
         return dataSource;
     }
 

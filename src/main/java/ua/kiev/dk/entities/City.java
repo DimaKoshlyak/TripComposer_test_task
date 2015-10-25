@@ -4,6 +4,7 @@ package ua.kiev.dk.entities;
  * Created by d.koshlyak on 23.10.2015.
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ public class City implements Serializable{
 
     @Column(name = "city_name")
     private String cityName;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private Country country;
 
@@ -55,6 +56,7 @@ public class City implements Serializable{
         this.country = country;
     }
 
+    @JsonIgnore
     @Override
     public String toString() {
         return "City{" +

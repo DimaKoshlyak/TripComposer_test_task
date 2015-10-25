@@ -12,9 +12,7 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 import ua.kiev.dk.config.PersistenceContextTest;
-import ua.kiev.dk.entities.City;
 import ua.kiev.dk.entities.Country;
-import ua.kiev.dk.services.CityManager;
 import ua.kiev.dk.services.CountryManager;
 
 import java.util.Collection;
@@ -23,7 +21,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by d.koshlyak on 23.10.2015.
+ * Created by Admin on 25.10.2015.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,39 +29,33 @@ import static org.junit.Assert.assertEquals;
         TransactionalTestExecutionListener.class, DbUnitTestExecutionListener.class})
 @SpringApplicationConfiguration(classes = {PersistenceContextTest.class})
 @WebAppConfiguration
-
-public class CityPersistenceTest {
-    @Autowired
-    private CityManager cityManager;
+public class CountryPersistenceTest {
 
     @Autowired
     private CountryManager countryManager;
 
     @Test
-    public void findAllCitiesTest() {
-        Collection<City> cities = cityManager.citiesList();
-        assertEquals(0, cities.size());
+    public void findAllCountriesTest() {
+        Collection<Country> countries = countryManager.countriesList();
+        assertEquals(1, countries.size());
     }
 
     @Test
-    public void addCityTest() {
-        Country country = new Country();
-        country.setCountryName("UA");
-        country.setCountryISOCode("sss");
-        countryManager.addCountry(country);
+    public void addCountryTest() {
+        Country country1 = new Country();
+        country1.setCountryName("Ukraine");
+        country1.setCountryISOCode("UA");
+        countryManager.addCountry(country1);
 
-        City city1 = new City();
-        city1.setCityName("Kiev");
-        city1.setCountry(country);
+        Country country2 = new Country();
+        country2.setCountryName("Italy");
+        country2.setCountryISOCode("IT");
+        countryManager.addCountry(country2);
 
-        City city2 = new City();
-        city2.setCityName("Dnepr");
-        city2.setCountry(country);
+        countryManager.addCountry(country1);
+        countryManager.addCountry(country2);
 
-        cityManager.addCity(city1);
-        cityManager.addCity(city2);
-
-        List<City> cityList = cityManager.citiesList();
-        assertEquals(2, cityList.size());
+        List<Country> countries = countryManager.countriesList();
+        assertEquals(3, countries.size());
     }
 }

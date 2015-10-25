@@ -29,17 +29,15 @@ public class RestController {
     @Autowired
     private CityManager cityManager;
 
+    @RequestMapping(value = "/")
+    public ModelAndView homePage() throws IOException {
+        return new ModelAndView("index");
+    }
+
     @RequestMapping(value = "/json")
     public ModelAndView test() throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-//        List<JSONResponse> jsonResponses = mapper.readValue(new File("\\tripcomposer.json")
-//                        ,mapper.getTypeFactory()
-//                        .constructCollectionType(List.class, JSONResponse.class));
-
-//        for(Main elem:countries){
-//            System.out.println(elem.getTime());
-//        }
 
         JSONResponse jsonResponse = mapper.readValue(new File("d:\\tripcomposer.json"), JSONResponse.class);
 
@@ -53,10 +51,10 @@ public class RestController {
                 cityManager.addCity(city);
             }
         }
-
-        return new ModelAndView("index");
+        return new ModelAndView("cities","cities",cityManager.citiesList());
     }
 
+    //TODO: try to solve the problem with script sending
     @RequestMapping(value = "/post",
             method = RequestMethod.POST,
             consumes = "application/json;charset=UTF-8",
@@ -68,23 +66,6 @@ public class RestController {
         return p;
     }
 }
-
-//    public RestController(){
-//        System.out.println("init RestController");
-//    }
-
-//this method responses to GET request http://localhost/spring-mvc-json/rest/cont
-// return Person object as json
-//
-//    @RequestMapping(method = RequestMethod.GET)
-//    public @ResponseBody Person get(HttpServletResponse res) {
-//
-//        Person person = new Person();
-//        person.setId(1);
-//        person.setName("hmk");
-//
-//        return person;
-//    }
 
 //this method response to POST request http://localhost/spring-mvc-json/rest/cont/person
 // receives json data sent by client --> map it to Person object

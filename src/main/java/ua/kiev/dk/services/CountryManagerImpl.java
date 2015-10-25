@@ -1,6 +1,7 @@
 package ua.kiev.dk.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ua.kiev.dk.entities.Country;
 import ua.kiev.dk.repositories.CountryRepository;
@@ -11,7 +12,9 @@ import java.util.List;
  * Created by d.koshlyak on 23.10.2015.
  */
 @Service("countryManager")
-public class CountryManagerImpl implements CountryManager {
+public class CountryManagerImpl implements CountryManager
+{
+    @Qualifier(value = "countryRepository")
     @Autowired
     private CountryRepository countryRepository;
 
