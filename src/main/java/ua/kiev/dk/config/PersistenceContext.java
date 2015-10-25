@@ -14,9 +14,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
 @Configuration
 @EnableJpaRepositories(basePackages = {
         "ua.kiev.dk.repositories"
@@ -25,9 +22,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class PersistenceContext {
 
-    private static final String[] ENTITY_PACKAGES = {
-            "ua.kiev.dk.entities"
-    };
     private final static String PROPERTY_DB_URL = "jdbc:postgresql://localhost:5432/tripcomposer";
     private final static String PROPERTY_DB_USER_NAME = "postgres";
     private final static String PROPERTY_DB_USER_PASSWORD = "r00t";
