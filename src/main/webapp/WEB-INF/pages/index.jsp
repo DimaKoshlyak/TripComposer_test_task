@@ -12,8 +12,11 @@
     <h3>TripComposer Test Task</h3>
     <input type="submit" value="Run script" class="btn btn-success" onclick="BindJson()" />
     <br><br>
-    <form action="/tripcomposer/json" method="post">
+    <form action="/tripcomposer/json_from_file" method="post">
         <input type="submit" value="Read JSON from file" class="btn btn-success">
+    </form>
+    <form action="/tripcomposer/json_simple_request" method="post">
+        <input type="submit" value="Send simple request" class="btn btn-success">
     </form>
 </div>
 
