@@ -34,7 +34,6 @@ public class PersistenceContext {
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
 
-
         dataSource.setUrl(PROPERTY_DB_URL);
         dataSource.setUsername(PROPERTY_DB_USER_NAME);
         dataSource.setPassword(PROPERTY_DB_USER_PASSWORD);

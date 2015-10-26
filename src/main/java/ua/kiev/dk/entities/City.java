@@ -1,9 +1,5 @@
 package ua.kiev.dk.entities;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 

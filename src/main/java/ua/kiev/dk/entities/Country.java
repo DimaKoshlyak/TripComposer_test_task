@@ -7,10 +7,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
-
 @Entity
 @Table(name = "countries")
 @JsonPropertyOrder({"countryName", "countryISOCode", "cities"})

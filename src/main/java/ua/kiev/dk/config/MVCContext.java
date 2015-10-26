@@ -9,9 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
 @Configuration
 @ComponentScan("ua.kiev.dk")
 @EnableWebMvc

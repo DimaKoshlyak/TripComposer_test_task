@@ -6,9 +6,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 24.10.2015.
- */
 @JsonPropertyOrder({"type", "time", "countries"})
 public class JSONResponse implements Serializable {
 

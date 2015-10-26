@@ -34,11 +34,18 @@ public class RestController {
     @Autowired
     private CityManager cityManager;
 
+    /*
+    This method starts index page by default
+     */
     @RequestMapping(value = "/")
     public ModelAndView homePage() throws IOException {
         return new ModelAndView("index");
     }
 
+    /*
+    Method runs by action button from index page. Parses file to json object.
+    Returns new page with cities added from file
+     */
     @RequestMapping(value = "/json_from_file")
     public ModelAndView jsonFromFile() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -48,6 +55,10 @@ public class RestController {
         return new ModelAndView("cities", "cities", cityManager.citiesList());
     }
 
+    /*
+    Method runs by action button from index page. Sends simple http request and convert it to json object.
+    Returns new page with cities added from request
+     */
     @RequestMapping(value = "/json_simple_request")
     public ModelAndView jsonSimpleRequest() throws Exception {
         String jsonStringResponse = "";
@@ -59,7 +70,11 @@ public class RestController {
         return new ModelAndView("cities", "cities", cityManager.citiesList());
     }
 
-    //TODO: try to solve the problem with script sending
+    /*
+    Method runs jQuery script by action button from index page. Sends request and convert it to json object.
+    Returns new page with cities added from request
+    TODO: try to solve the problem with script sending
+     */
     @RequestMapping(value = "/post",
             method = RequestMethod.POST,
             consumes = "application/json;charset=UTF-8",
@@ -70,6 +85,9 @@ public class RestController {
         return new ModelAndView("cities", "cities", cityManager.citiesList());
     }
 
+    /*
+    Method adds the list of converted json objects to database
+     */
     public void addToDatabase(List<Country> countries) {
         for (Country country : countries) {
             countryManager.addCountry(country);
@@ -81,6 +99,9 @@ public class RestController {
         }
     }
 
+    /*
+    Method sends simple http POST request to url, convert and return response to json string
+     */
     public String sendJSONRequest() throws Exception {
         URL url = new URL(REQUEST_URL);
         StringBuffer response = new StringBuffer();

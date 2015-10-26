@@ -8,9 +8,6 @@ import ua.kiev.dk.repositories.CityRepository;
 
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
 @Service("cityManager")
 public class CityManagerImpl implements CityManager
 {

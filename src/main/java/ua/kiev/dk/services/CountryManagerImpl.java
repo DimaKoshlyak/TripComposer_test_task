@@ -8,9 +8,6 @@ import ua.kiev.dk.repositories.CountryRepository;
 
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 23.10.2015.
- */
 @Service("countryManager")
 public class CountryManagerImpl implements CountryManager
 {
